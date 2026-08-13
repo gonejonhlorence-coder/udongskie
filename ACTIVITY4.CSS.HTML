@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Blog Post</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background-color:#FAF5FF;
+    margin:0;
+    padding:0;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(to right,#833AB4,#C13584,#E1306C,#F77737,#FCAF45);
+    text-align:center;
+    padding:30px 20px;
+    color:white;
+    border-bottom:4px solid #C13584;
+}
+
+#mainTitle{
+    color:white;
+    font-size:clamp(28px,4vw,45px);
+}
+
+header p{
+    text-align:center;
+    font-size:18px;
+}
+
+nav{
+    background:#222;
+    padding:15px;
+}
+
+nav ul{
+    display:flex;
+    justify-content:space-around;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+nav a:hover{
+    color:#F77737;
+}
+
+article{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+    padding:10px 0;
+}
+
+section{
+    background:white;
+    margin:20px 0;
+    padding:20px;
+    border:2px solid #F8BBD0;
+    border-radius:10px;
+}
+
+h2{
+    color:#C13584;
+}
+
+p{
+    font-size:18px;
+    line-height:1.5;
+    text-align:justify;
+}
+
+a:link{
+    color:#833AB4;
+    text-decoration:none;
+}
+
+a:hover{
+    color:#E1306C;
+}
+
+a:visited{
+    color:#6A1B9A;
+}
+
+nav a:visited{
+    color:white;
+}
+
+.important{
+    color:#060002;
+}
+
+.box1{
+    background:#f7f1f4;
+}
+
+.box2{
+    background:linear-gradient(to right,#f7f6f7,#fafaf9);
+}
+
+/* Favorite Images */
+.favorite-images{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    align-items:stretch;
+}
+
+.favorite-images figure{
+    flex:1;
+    margin:0;
+    text-align:center;
+    overflow:visible;
+}
+
+.favorite-images img{
+    display:block;
+    width:100%;
+    max-width:250px;
+    height:250px;
+    margin:auto;
+    object-fit:cover;
+    border-radius:10px;
+    transition:transform 0.3s ease;
+}
+
+.favorite-images img:hover{
+    transform:scale(1.1);
+}
+
+/* Activity 4 - Flexbox */
+.cards{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    align-items:stretch;
+}
+
+.card{
+    flex:1;
+    padding:25px;
+    background:white;
+    text-align:center;
+    border:2px solid #F8BBD0;
+    border-radius:10px;
+}
+
+.card p{
+    text-align:center;
+}
+
+/* Responsive Image Gallery */
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.gallery img{
+    width:calc(33.33% - 10px);
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+    transition:transform 0.3s ease;
+}
+
+.gallery img:hover{
+    transform:scale(1.08);
+}
+
+/* Centered Element */
+.center{
+    height:220px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f7f1f4;
+    border:2px solid #F8BBD0;
+    border-radius:10px;
+}
+
+.center div{
+    background:#E1306C;
+    color:white;
+    padding:25px;
+    border-radius:10px;
+}
+
+/* CSS Grid */
+.blog{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
+
+.blog div{
+    background:white;
+    padding:25px;
+    border:2px solid #F8BBD0;
+    border-radius:10px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.product{
+    background:white;
+    padding:25px;
+    text-align:center;
+    border:2px solid #F8BBD0;
+    border-radius:10px;
+}
+
+.product p{
+    text-align:center;
+}
+
+.calendar{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:5px;
+}
+
+.day{
+    padding:15px 5px;
+    text-align:center;
+    background:#f7f1f4;
+    border:1px solid #F8BBD0;
+    border-radius:5px;
+}
+
+.head{
+    background:#E1306C;
+    color:white;
+}
+
+.span-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.span{
+    grid-column:span 2;
+    grid-row:span 2;
+    padding:40px;
+    background:#E1306C;
+    color:white;
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:8px;
+}
+
+.small{
+    padding:30px;
+    background:white;
+    text-align:center;
+    border:2px solid #F8BBD0;
+    border-radius:8px;
+}
+
+/* Table */
+.table-container{
+    width:100%;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#E1306C;
+    color:white;
+}
+
+th,td{
+    border:1px solid #F8BBD0;
+    padding:10px;
+    text-align:center;
+}
+
+/* Form */
+form{
+    width:100%;
+    max-width:700px;
+}
+
+input,textarea,select{
+    border:1px solid #F48FB1;
+    padding:8px;
+    max-width:100%;
+}
+
+input[type=text],
+input[type=email],
+input[type=file],
+textarea,
+select{
+    width:100%;
+}
+
+textarea{
+    resize:vertical;
+}
+
+input[type=checkbox],
+input[type=radio]{
+    width:auto;
+}
+
+input[type=submit]{
+    background:#E1306C;
+    color:white;
+    border:1px solid #C13584;
+    padding:9px 15px;
+}
+
+/* Footer */
+footer{
+    background:linear-gradient(to right,#833AB4,#C13584,#E1306C,#F77737,#FCAF45);
+    color:white;
+    padding:15px;
+    border-top:4px solid #C13584;
+}
+
+footer p{
+    color:white;
+}
+
+.top-btn{
+    text-align:right;
+}
+
+footer a,
+footer a:visited{
+    color:white;
+}
+
+/* Responsive */
+@media(max-width:900px){
+
+    .favorite-images{
+        gap:15px;
+    }
+
+    .favorite-images img{
+        height:200px;
+    }
+
+    .gallery img{
+        width:calc(50% - 8px);
+        height:200px;
+    }
+
+    .blog{
+        grid-template-columns:1fr;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    nav ul{
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+    }
+
+    .cards{
+        flex-direction:column;
+    }
+
+    .favorite-images{
+        flex-direction:column;
+    }
+
+    .favorite-images img{
+        width:100%;
+        max-width:300px;
+        height:250px;
+    }
+
+    .gallery img{
+        width:100%;
+        height:auto;
+        aspect-ratio:4/3;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .day{
+        padding:10px 3px;
+        font-size:14px;
+    }
+
+    .span-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .span{
+        grid-column:span 2;
+    }
+}
+
+@media(max-width:400px){
+
+    .day{
+        padding:8px 2px;
+        font-size:12px;
+    }
+
+    .span-grid{
+        grid-template-columns:1fr;
+    }
+
+    .span{
+        grid-column:span 1;
+    }
+}
+</style>
+</head>
+
+<body id="top">
+
+<a href="#bottom">Go to Bottom</a>
+
+<header>
+<h1 id="mainTitle">*****My Personal Blog*****</h1>
+<p><strong>Date:</strong> August 3, 2026</p>
+<p><strong>Author:</strong> Jonh Lorence Densing</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="#top">Home</a></li>
+<li><a href="#introduction">About</a></li>
+<li><a href="#hobbies">Hobbies</a></li>
+<li><a href="#images">Images</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="#bottom">Contact</a></li>
+</ul>
+</nav>
+
+<article>
+
+<section class="box1" id="introduction">
+<h2>Introduction</h2>
+<p>Welcome to my first HTML blog post.</p>
+<p class="important">HTML is the foundation of web development.</p>
+<p>It helps users easily learn more about me through a simple and well-organized blog.</p>
+</section>
+
+<section class="box2" id="hobbies">
+<h2>Favorite Hobbies</h2>
+<ol>
+<li>Playing Online Games</li>
+<li>Reading Books</li>
+<li>Watching K-Drama</li>
+<li>Playing Video Games</li>
+</ol>
+</section>
+
+<section>
+<h2>Other Hobbies</h2>
+<ul>
+<li>Listening to Music</li>
+<li>Playing Musical Instruments</li>
+<li>Visiting New Places</li>
+<li>Traveling Abroad</li>
+</ul>
+</section>
+
+<section id="images">
+<h2>Favorite Images</h2>
+
+<div class="favorite-images">
+
+<figure>
+<img src="https://placecats.com/500/500" alt="Cute Cat">
+<figcaption>Cute Cat</figcaption>
+</figure>
+
+<figure>
+<img src="https://placecats.com/501/501" alt="Cute Kitty">
+<figcaption>Cute Kitty</figcaption>
+</figure>
+
+<figure>
+<img src="https://placecats.com/502/502" alt="Lovely Cat">
+<figcaption>Lovely Cat</figcaption>
+</figure>
+
+</div>
+</section>
+
+<section>
+
+<h2>Flexbox</h2>
+
+<h3>2. Card Layout</h3>
+
+<div class="cards">
+
+<div class="card">
+<h3>HTML</h3>
+<p>Structure of a webpage.</p>
+</div>
+
+<div class="card">
+<h3>CSS</h3>
+<p>Design and styling.</p>
+</div>
+
+<div class="card">
+<h3>JavaScript</h3>
+<p>Interaction and functionality.</p>
+</div>
+
+</div>
+
+<h3>3. Responsive Image Gallery</h3>
+
+<div class="gallery">
+
+<img src="https://placecats.com/600/400" alt="Cute Cat 1">
+<img src="https://placecats.com/601/400" alt="Cute Cat 2">
+<img src="https://placecats.com/602/400" alt="Cute Cat 3">
+<img src="https://placecats.com/603/400" alt="Cute Cat 4">
+<img src="https://placecats.com/604/400" alt="Cute Cat 5">
+<img src="https://placecats.com/605/400" alt="Cute Cat 6">
+
+</div>
+
+<h3>4. Centered Element</h3>
+
+<div class="center">
+<div>Centered Element</div>
+</div>
+
+</section>
+
+<section>
+
+<h2>CSS Grid</h2>
+
+<h3>5. Two-Column Blog Layout</h3>
+
+<div class="blog">
+
+<div>
+<h3>Main Content</h3>
+<p>This is the main blog content.</p>
+</div>
+
+<div>
+<h3>Sidebar</h3>
+<p>Recent Posts</p>
+</div>
+
+</div>
+
+<h3>6. Four-Column Product Grid</h3>
+
+<div class="products" id="products">
+
+<div class="product">
+💻
+<h3>Laptop</h3>
+<p>₱35,000</p>
+</div>
+
+<div class="product">
+⌨️
+<h3>Keyboard</h3>
+<p>₱1,500</p>
+</div>
+
+<div class="product">
+🖱️
+<h3>Mouse</h3>
+<p>₱800</p>
+</div>
+
+<div class="product">
+🖥️
+<h3>Monitor</h3>
+<p>₱8,000</p>
+</div>
+
+</div>
+
+<h3>7. Calendar Layout</h3>
+
+<div class="calendar">
+
+<div class="day head">Sun</div>
+<div class="day head">Mon</div>
+<div class="day head">Tue</div>
+<div class="day head">Wed</div>
+<div class="day head">Thu</div>
+<div class="day head">Fri</div>
+<div class="day head">Sat</div>
+
+<div class="day">1</div>
+<div class="day">2</div>
+<div class="day">3</div>
+<div class="day">4</div>
+<div class="day">5</div>
+<div class="day">6</div>
+<div class="day">7</div>
+<div class="day">8</div>
+<div class="day">9</div>
+<div class="day">10</div>
+<div class="day">11</div>
+<div class="day">12</div>
+<div class="day">13</div>
+<div class="day">14</div>
+<div class="day">15</div>
+<div class="day">16</div>
+<div class="day">17</div>
+<div class="day">18</div>
+<div class="day">19</div>
+<div class="day">20</div>
+<div class="day">21</div>
+<div class="day">22</div>
+<div class="day">23</div>
+<div class="day">24</div>
+<div class="day">25</div>
+<div class="day">26</div>
+<div class="day">27</div>
+<div class="day">28</div>
+<div class="day">29</div>
+<div class="day">30</div>
+<div class="day">31</div>
+
+</div>
+
+<h3>8. Grid Spanning</h3>
+
+<div class="span-grid">
+
+<div class="span">
+Spans 2 Rows<br>
+and 2 Columns
+</div>
+
+<div class="small">Item 2</div>
+<div class="small">Item 3</div>
+<div class="small">Item 4</div>
+<div class="small">Item 5</div>
+<div class="small">Item 6</div>
+<div class="small">Item 7</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Class Schedule</h2>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+<th>Subject</th>
+<th>Day</th>
+<th>Time</th>
+<th>Room</th>
+</tr>
+
+<tr>
+<td>WEB DEVELOPMENT</td>
+<td>Monday</td>
+<td>10:00 AM - 12:00 PM</td>
+<td>Lab 1</td>
+</tr>
+
+<tr>
+<td>WEB DEVELOPMENT</td>
+<td>Tuesday</td>
+<td>10:00 AM - 12:00 PM</td>
+<td>Lab 2</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Feedback Form</h2>
+
+<form>
+
+<label>Name:</label><br>
+<input type="text" required><br><br>
+
+<label>Email:</label><br>
+<input type="email" required><br><br>
+
+<label>Comments:</label><br>
+<textarea rows="5" required></textarea><br><br>
+
+<p><strong>Select Your Skills:</strong></p>
+
+<input type="checkbox"> HTML<br>
+<input type="checkbox"> CSS<br>
+<input type="checkbox"> JavaScript<br><br>
+
+<p><strong>Preferred Contact Method:</strong></p>
+
+<input type="radio" name="contact" required> Phone<br>
+<input type="radio" name="contact"> Email<br><br>
+
+<label>Country:</label><br>
+
+<select required>
+<option>--Select Country--</option>
+<option>Philippines</option>
+<option>Japan</option>
+<option>South Korea</option>
+<option>China</option>
+<option>United States</option>
+</select>
+
+<br><br>
+
+<label>Upload Profile Picture:</label><br>
+<input type="file" required>
+
+<br><br>
+
+<input type="submit" value="Submit Feedback">
+
+</form>
+
+</section>
+
+</article>
+
+<footer id="bottom">
+
+<p>&copy; 2026 My Blog</p>
+
+<div class="top-btn">
+<a href="#top">⬆ Back to Top</a>
+</div>
+
+</footer>
+
+</body>
+</html>
