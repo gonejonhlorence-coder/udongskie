@@ -3,50 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> FastFood Food Kiosk </title>
-<style>
-* { box-sizing: border-box; }
-body {
-	margin: 0;
-	font-family: Arial, sans-serif;
-	background: #fff7ed;
-	color: #2d1b12;
-}
-.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
-header, footer { text-align: center; }
-header { background: #d62828; color: white; padding: 28px; border-radius: 12px; }
-.section-title { color: #d62828; margin-top: 28px; }
-.order-form, .feedback { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 10px #0001; }
-.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-.form-group, .feedback-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
-input, select, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font: inherit; }
-textarea { min-height: 100px; resize: vertical; }
-.button { background: #f77f00; color: white; border: 0; padding: 11px 18px; border-radius: 6px; cursor: pointer; }
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-.card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px #0001; }
-.card img { width: 100%; height: 180px; object-fit: cover; }
-.card-content { padding: 16px; }
-.price { font-weight: bold; color: #d62828; }
-.feedback, .output { margin-top: 28px; }
-.output { display: none; background: #fff3cd; padding: 20px; border-radius: 12px; }
-footer { margin-top: 28px; padding: 20px; }
-</style>
+<title>Udongs BurgerKing</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="container">
+
 <header>
 <h1>Udongs BurgerKing</h1>
-<p>Delicious food. Mapapa Aguy ka sa sarap!
-</p>
+<p>Delicious food. Mapapa Aguy ka sa sarap!</p>
 </header>
-<section>
-<div class="order-form">
-<h2 class="section-title">Place Your Order</h2>
+
+<section class="order-form">
+<h2>Place Your Order</h2>
+
 <div class="form-grid">
+
 <div class="form-group">
 <label for="name">Full Name</label>
 <input type="text" id="name" placeholder="Enter your name">
 </div>
+
 <div class="form-group">
 <label for="food">Choose Food</label>
 <select id="food">
@@ -56,10 +35,12 @@ footer { margin-top: 28px; padding: 20px; }
 <option value="Pizza" data-price="149">Pizza - ₱149</option>
 </select>
 </div>
+
 <div class="form-group">
 <label for="quantity">Quantity</label>
 <input type="number" id="quantity" min="1" value="1">
 </div>
+
 <div class="form-group">
 <label for="payment">Payment Method</label>
 <select id="payment">
@@ -69,12 +50,16 @@ footer { margin-top: 28px; padding: 20px; }
 <option value="Credit/Debit Card">Credit/Debit Card</option>
 </select>
 </div>
-</div>
-<button class="button" type="button" onclick="placeOrder()">Place Order</button>
+
 </div>
 
+<button class="button" type="button" onclick="placeOrder()">Place Order</button>
+</section>
+
 <h2 class="section-title">Our Menu</h2>
-<div class="cards">
+
+<section class="cards">
+
 <div class="card">
 <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=85" alt="Cheeseburger">
 <div class="card-content">
@@ -83,6 +68,7 @@ footer { margin-top: 28px; padding: 20px; }
 <span class="price">₱99</span>
 </div>
 </div>
+
 <div class="card">
 <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&w=800&q=85" alt="Chicken Meal">
 <div class="card-content">
@@ -91,6 +77,7 @@ footer { margin-top: 28px; padding: 20px; }
 <span class="price">₱129</span>
 </div>
 </div>
+
 <div class="card">
 <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=85" alt="Pizza">
 <div class="card-content">
@@ -99,19 +86,23 @@ footer { margin-top: 28px; padding: 20px; }
 <span class="price">₱149</span>
 </div>
 </div>
-</div>
 
-<div class="feedback">
+</section>
+
+<section class="feedback">
 <h2>Guest Feedback Form</h2>
-<p class="feedback-description">We would love to hear your thoughts about our food and service.</p>
+<p>We would love to hear your thoughts about our food and service.</p>
+
 <div class="feedback-group">
 <label for="feedback-name">Full Name</label>
 <input type="text" id="feedback-name" placeholder="Enter your full name">
 </div>
+
 <div class="feedback-group">
 <label for="email">Email Address</label>
 <input type="email" id="email" placeholder="Enter your email">
 </div>
+
 <div class="feedback-group">
 <label for="rating">Rate Your Experience</label>
 <select id="rating">
@@ -123,69 +114,34 @@ footer { margin-top: 28px; padding: 20px; }
 <option>1 - Poor</option>
 </select>
 </div>
+
 <div class="feedback-group">
 <label for="date">Date of Visit</label>
 <input type="date" id="date">
 </div>
+
 <div class="feedback-group">
 <label for="comments">Comments / Feedback</label>
 <textarea id="comments" placeholder="Write your feedback here..."></textarea>
 </div>
-<button class="button" type="button" onclick="submitFeedback()">Submit Feedback</button>
-</div>
 
-<div class="output" id="output">
+<button class="button" type="button" onclick="submitFeedback()">Submit Feedback</button>
+</section>
+
+<section class="output" id="output">
 <h2>Order / Feedback Output</h2>
 <div id="outputContent"></div>
-</div>
 </section>
 
 <footer>
 <p>© 2026 All rights reserved.</p>
-<br>
 <a href="#">Privacy Policy</a> |
 <a href="#">Terms of Service</a>
 </footer>
+
 </div>
 
-<script>
-function showOutput(message) {
-	const output = document.getElementById('output');
-	document.getElementById('outputContent').innerHTML = message;
-	output.style.display = 'block';
-}
-
-function placeOrder() {
-	const name = document.getElementById('name').value.trim();
-	const food = document.getElementById('food');
-	const quantity = Number(document.getElementById('quantity').value);
-	const payment = document.getElementById('payment').value;
-	const selected = food.options[food.selectedIndex];
-
-	if (!name || !food.value || !quantity || quantity < 1 || !payment) {
-		showOutput('Please complete all order fields.');
-		return;
-	}
-
-	const total = Number(selected.dataset.price) * quantity;
-	showOutput(`<strong>Thank you, ${name}!</strong><br>${quantity} × ${food.value}<br>Total: ₱${total}<br>Payment: ${payment}`);
-}
-
-function submitFeedback() {
-	const name = document.getElementById('feedback-name').value.trim();
-	const email = document.getElementById('email').value.trim();
-	const rating = document.getElementById('rating').value;
-	const date = document.getElementById('date').value;
-	const comments = document.getElementById('comments').value.trim();
-
-	if (!name || !email || !rating || !date || !comments) {
-		showOutput('Please complete all feedback fields.');
-		return;
-	}
-
-	showOutput(`<strong>Thank you for your feedback, ${name}!</strong><br>Rating: ${rating}`);
-}
-
-</script>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
 </body>
 </html>
