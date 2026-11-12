@@ -1,14 +1,16 @@
 <?php
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "burgerking_db";
 
-$conn = new mysqli($host, $username, $password, $database);
+$conn = mysqli_connect(
+    "localhost",
+    "root",
+    "",
+    "simpledb"
+);
 
-if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
-$conn->set_charset("utf8mb4");
+mysqli_set_charset($conn, "utf8mb4");
+
 ?>
